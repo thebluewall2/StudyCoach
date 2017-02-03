@@ -6,13 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Home-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="Study_Coach" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="HomeViewController" customModule="Study_Coach" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -21,27 +22,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Np-mD-pQj">
-                                <rect key="frame" x="114" y="258" width="146" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGl-1n-D8G">
-                                <rect key="frame" x="15" y="109" width="345" height="136"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGl-1n-D8G">
+                                <rect key="frame" x="47" y="173" width="280" height="42"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 <state key="normal" title="START STUDY SESSION"/>
                                 <connections>
                                     <action selector="startStudySessionPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="hKm-Qu-Pnb"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Np-mD-pQj">
+                                <rect key="frame" x="154" y="274" width="67" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iat-G0-uXs" userLabel="Take A Break Button">
+                                <rect key="frame" x="101" y="676" width="173" height="42"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="TAKE A BREAK"/>
+                                <connections>
+                                    <action selector="takeABreakButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="uLg-Gx-i1O"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U55-BF-GXW">
+                                <rect key="frame" x="116.5" y="676" width="141" height="42"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="END BREAK"/>
+                                <connections>
+                                    <action selector="endBreakButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="iLW-24-xq6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LGl-1n-D8G" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="1iH-Xv-QeK"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="iat-G0-uXs" secondAttribute="bottom" constant="-100" id="6XL-tI-Saf" userLabel="Take a Break Botton Constraint"/>
+                            <constraint firstItem="U55-BF-GXW" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="6dF-2W-aka" userLabel="End Break Center Constraint"/>
+                            <constraint firstItem="5Np-mD-pQj" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="274" id="98c-b9-JIZ" userLabel="Timer Top Constraint"/>
+                            <constraint firstItem="LGl-1n-D8G" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="153" id="QxY-z5-bRb" userLabel="Start Study Top Constraint"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="U55-BF-GXW" secondAttribute="bottom" constant="-100" id="WGA-aU-hB0" userLabel="End Break Botton Constraint"/>
+                            <constraint firstItem="iat-G0-uXs" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="eMk-0h-OUd" userLabel="Take a Break Center Constraint"/>
+                            <constraint firstItem="5Np-mD-pQj" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="zOh-Hk-E4h" userLabel="Timer Center Constraint"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="first" selectedImage="HomeIcon" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="endBreakButtomConstraint" destination="WGA-aU-hB0" id="pqL-YU-KWW"/>
+                        <outlet property="endBreakButton" destination="U55-BF-GXW" id="bK7-P1-pyN"/>
+                        <outlet property="startStudyButton" destination="LGl-1n-D8G" id="Ooj-hr-KYK"/>
+                        <outlet property="startStudyButtonTopConstraint" destination="QxY-z5-bRb" id="Nko-3w-tRy"/>
+                        <outlet property="takeABreakButton" destination="iat-G0-uXs" id="5fU-mA-qYL"/>
+                        <outlet property="takeABreakButtonBottomConstraint" destination="6XL-tI-Saf" id="2iI-fw-fXU"/>
                         <outlet property="timerLabel" destination="5Np-mD-pQj" id="YXY-1M-WEK"/>
                     </connections>
                 </viewController>
@@ -110,6 +141,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="HomeIcon" width="25" height="25"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
