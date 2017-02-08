@@ -30,6 +30,14 @@
                                     <action selector="startStudySessionPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="hKm-Qu-Pnb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KlN-ji-IUu">
+                                <rect key="frame" x="81" y="725" width="212" height="42"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="End Study Session"/>
+                                <connections>
+                                    <action selector="endStudySessionButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="vtL-1L-frW"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Np-mD-pQj">
                                 <rect key="frame" x="154" y="274" width="67" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
@@ -52,24 +60,24 @@
                                     <action selector="endBreakButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="iLW-24-xq6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KlN-ji-IUu">
-                                <rect key="frame" x="81" y="725" width="212" height="42"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                <state key="normal" title="End Study Session"/>
-                                <connections>
-                                    <action selector="endStudySessionButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="vtL-1L-frW"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdN-NT-OGo" userLabel="Goal Label">
+                                <rect key="frame" x="166" y="697" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="LGl-1n-D8G" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="1iH-Xv-QeK"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="iat-G0-uXs" secondAttribute="bottom" constant="-100" id="6XL-tI-Saf" userLabel="Take a Break Botton Constraint"/>
                             <constraint firstItem="U55-BF-GXW" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="6dF-2W-aka" userLabel="End Break Center Constraint"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="bdN-NT-OGo" secondAttribute="bottom" constant="-100" id="86O-Jb-GYk" userLabel="Goal Label Bottom Constraint"/>
                             <constraint firstItem="5Np-mD-pQj" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="274" id="98c-b9-JIZ" userLabel="Timer Top Constraint"/>
                             <constraint firstAttribute="bottom" secondItem="KlN-ji-IUu" secondAttribute="bottom" constant="-100" id="NRh-4U-tHr" userLabel="End Study Session Bottom Constraint"/>
                             <constraint firstItem="LGl-1n-D8G" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="153" id="QxY-z5-bRb" userLabel="Start Study Top Constraint"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="U55-BF-GXW" secondAttribute="bottom" constant="-100" id="WGA-aU-hB0" userLabel="End Break Botton Constraint"/>
+                            <constraint firstItem="bdN-NT-OGo" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="YDd-7N-J3c" userLabel="Goal Label center constraint"/>
                             <constraint firstItem="KlN-ji-IUu" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="ZRd-xU-DgN" userLabel="End Study Center Constraint"/>
                             <constraint firstItem="iat-G0-uXs" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="eMk-0h-OUd" userLabel="Take a Break Center Constraint"/>
                             <constraint firstItem="5Np-mD-pQj" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="zOh-Hk-E4h" userLabel="Timer Center Constraint"/>
@@ -81,6 +89,8 @@
                         <outlet property="endBreakButton" destination="U55-BF-GXW" id="bK7-P1-pyN"/>
                         <outlet property="endStudySessionButton" destination="KlN-ji-IUu" id="ZKE-B1-hJ4"/>
                         <outlet property="endStudySessionButtonBottomConstraint" destination="NRh-4U-tHr" id="pig-mE-hlw"/>
+                        <outlet property="goalLabel" destination="bdN-NT-OGo" id="r46-iH-NVm"/>
+                        <outlet property="goalLabelBottomConstraint" destination="86O-Jb-GYk" id="Vbv-vN-DFs"/>
                         <outlet property="startStudyButton" destination="LGl-1n-D8G" id="Ooj-hr-KYK"/>
                         <outlet property="startStudyButtonTopConstraint" destination="QxY-z5-bRb" id="Nko-3w-tRy"/>
                         <outlet property="takeABreakButton" destination="iat-G0-uXs" id="5fU-mA-qYL"/>

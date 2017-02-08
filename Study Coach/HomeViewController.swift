@@ -24,6 +24,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var endBreakButtomConstraint: NSLayoutConstraint!
     @IBOutlet weak var endStudySessionButton: UIButton!
     @IBOutlet weak var endStudySessionButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var goalLabel: UILabel!
+    @IBOutlet weak var goalLabelBottomConstraint: NSLayoutConstraint!
     
     var secondsCounter = 0
     var minCounter = 0
@@ -46,6 +48,8 @@ class HomeViewController: UIViewController {
     @IBAction func startStudySessionPressed(_ sender: Any) {
         
         checkTime()
+        setGoal()
+        
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startStudyTimer), userInfo: nil, repeats: true)
         
         //slide the start study button upwards
@@ -139,6 +143,11 @@ class HomeViewController: UIViewController {
         self.endStudySessionButtonBottomConstraint.constant = position
     }
     
+    func moveGoalLabel(position: CGFloat) {
+        self.goalLabel.center.y = 300
+        self.goalLabelBottomConstraint.constant = position
+    }
+    
     func startStudyTimer() {
         secondsCounter += 1
         
@@ -218,6 +227,33 @@ class HomeViewController: UIViewController {
         
         let newDate = calendar.date(from: dateComponents)!
         return newDate
+    }
+    
+    func setGoal() {
+        let alert = UIAlertController(title: "Set a goal", message: "Enter your goal for this study session : ", preferredStyle: .alert)
+        
+        
+        alert.addTextField { (textField) in
+            textField.text = "Memorise 50 terms in Biology"
+        }
+        
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert!.textFields![0]
+            self.goalLabel.text = "GOAL : " + textField.text!
+            
+            UIView.animate(withDuration: 0.5, delay: 0.3, options: [],
+                           animations: {
+                            self.moveGoalLabel(position: 300)
+                            
+                            self.view.layoutIfNeeded()
+            },
+                           completion: nil
+            )
+        }))
+        
+        
+        self.present(alert, animated: true, completion: nil)
     }
 
 }
