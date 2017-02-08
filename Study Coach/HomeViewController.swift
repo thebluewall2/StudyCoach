@@ -19,6 +19,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var takeABreakButton: UIButton!
     @IBOutlet weak var endBreakButton: UIButton!
     @IBOutlet weak var endBreakButtomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var endStudySessionButton: UIButton!
+    @IBOutlet weak var endStudySessionButtonBottomConstraint: NSLayoutConstraint!
     
     var secondsCounter = 0
     var minCounter = 0
@@ -47,6 +49,7 @@ class HomeViewController: UIViewController {
             animations: {
                 self.moveStartStudyButton(position: -100)
                 self.moveTakeABreakButton(position: 500)
+                self.moveEndStudyButton(position: 200)
                 
                 self.view.layoutIfNeeded()
         },
@@ -97,6 +100,21 @@ class HomeViewController: UIViewController {
         
     }
     
+    @IBAction func endStudySessionButtonPressed(_ sender: Any) {
+        stopTimer()
+        timerLabel.text = "00:00:00"
+        
+        UIView.animate(withDuration: 0.5, delay: 0.3, options: [],
+                       animations: {
+                        self.moveStartStudyButton(position: 153)
+                        self.moveTakeABreakButton(position: -100)
+                        self.moveEndStudyButton(position: -100)
+                        self.moveEndBreakButton(position: -100)
+                        
+                        self.view.layoutIfNeeded()
+        })
+    }
+    
     func moveStartStudyButton(position: CGFloat) {
         self.startStudyButton.center.y += position
         self.startStudyButtonTopConstraint.constant = position
@@ -110,6 +128,11 @@ class HomeViewController: UIViewController {
     func moveEndBreakButton(position: CGFloat) {
         self.endBreakButton.center.y = position
         self.endBreakButtomConstraint.constant = position
+    }
+    
+    func moveEndStudyButton(position: CGFloat) {
+        self.endStudySessionButton.center.y = position
+        self.endStudySessionButtonBottomConstraint.constant = position
     }
     
     func startStudyTimer() {
@@ -160,6 +183,8 @@ class HomeViewController: UIViewController {
         minCounter = 0
         hoursCounter = 0
     }
+    
+    
 
 }
 

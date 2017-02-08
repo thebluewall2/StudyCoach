@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -52,6 +52,14 @@
                                     <action selector="endBreakButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="iLW-24-xq6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KlN-ji-IUu">
+                                <rect key="frame" x="81" y="725" width="212" height="42"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="End Study Session"/>
+                                <connections>
+                                    <action selector="endStudySessionButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="vtL-1L-frW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -59,8 +67,10 @@
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="iat-G0-uXs" secondAttribute="bottom" constant="-100" id="6XL-tI-Saf" userLabel="Take a Break Botton Constraint"/>
                             <constraint firstItem="U55-BF-GXW" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="6dF-2W-aka" userLabel="End Break Center Constraint"/>
                             <constraint firstItem="5Np-mD-pQj" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="274" id="98c-b9-JIZ" userLabel="Timer Top Constraint"/>
+                            <constraint firstAttribute="bottom" secondItem="KlN-ji-IUu" secondAttribute="bottom" constant="-100" id="NRh-4U-tHr" userLabel="End Study Session Bottom Constraint"/>
                             <constraint firstItem="LGl-1n-D8G" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="153" id="QxY-z5-bRb" userLabel="Start Study Top Constraint"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="U55-BF-GXW" secondAttribute="bottom" constant="-100" id="WGA-aU-hB0" userLabel="End Break Botton Constraint"/>
+                            <constraint firstItem="KlN-ji-IUu" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="ZRd-xU-DgN" userLabel="End Study Center Constraint"/>
                             <constraint firstItem="iat-G0-uXs" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="eMk-0h-OUd" userLabel="Take a Break Center Constraint"/>
                             <constraint firstItem="5Np-mD-pQj" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="zOh-Hk-E4h" userLabel="Timer Center Constraint"/>
                         </constraints>
@@ -69,6 +79,8 @@
                     <connections>
                         <outlet property="endBreakButtomConstraint" destination="WGA-aU-hB0" id="pqL-YU-KWW"/>
                         <outlet property="endBreakButton" destination="U55-BF-GXW" id="bK7-P1-pyN"/>
+                        <outlet property="endStudySessionButton" destination="KlN-ji-IUu" id="ZKE-B1-hJ4"/>
+                        <outlet property="endStudySessionButtonBottomConstraint" destination="NRh-4U-tHr" id="pig-mE-hlw"/>
                         <outlet property="startStudyButton" destination="LGl-1n-D8G" id="Ooj-hr-KYK"/>
                         <outlet property="startStudyButtonTopConstraint" destination="QxY-z5-bRb" id="Nko-3w-tRy"/>
                         <outlet property="takeABreakButton" destination="iat-G0-uXs" id="5fU-mA-qYL"/>

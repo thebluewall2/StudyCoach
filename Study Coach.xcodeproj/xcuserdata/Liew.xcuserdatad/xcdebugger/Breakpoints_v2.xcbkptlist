@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Study Coach/HomeViewController.swift"
-            timestampString = "507829956.055429"
+            timestampString = "508244679.445687"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "startStudySessionPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
