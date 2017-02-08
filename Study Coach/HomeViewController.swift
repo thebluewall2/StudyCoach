@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Foundation
 
 let breakTime = 15
+let lateTime = 23
+let lateTimeEnd = 6
 
 class HomeViewController: UIViewController {
     
@@ -42,6 +45,7 @@ class HomeViewController: UIViewController {
 
     @IBAction func startStudySessionPressed(_ sender: Any) {
         
+        checkTime()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startStudyTimer), userInfo: nil, repeats: true)
         
         //slide the start study button upwards
@@ -184,7 +188,56 @@ class HomeViewController: UIViewController {
         hoursCounter = 0
     }
     
+    func checkTime() {
+        let now = Date()
+        let maxTime = convertTime(hour: lateTime)
+        let maxTimeEnd = convertTime(hour: lateTimeEnd)
+        
+        if now >= maxTime && now <= maxTimeEnd {
+            let alertController = UIAlertController(title: "Past bedtime", message:
+                "It's late. You should not be studying. Get a good night's sleep. :)", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
     
+    func convertTime(hour: Int) -> Date {
+        let thisDate = Date()
+        let calendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
+        
+        var dateComponents = calendar.components(
+            [NSCalendar.Unit.year,
+             NSCalendar.Unit.month,
+             NSCalendar.Unit.day],
+            from: thisDate)
+        
+        dateComponents.hour = hour
+        dateComponents.minute = 0
+        dateComponents.second = 0
+        
+        let newDate = calendar.date(from: dateComponents)!
+        return newDate
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
