@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  HomeViewController.swift
 //  Study Coach
 //
 //  Created by Liew Soon Hen on 02/02/2017.
